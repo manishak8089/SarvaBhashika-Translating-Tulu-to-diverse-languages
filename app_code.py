@@ -10,7 +10,9 @@ from gtts import gTTS
 from io import BytesIO
 import requests
 import os
-
+import zipfile
+import streamlit as st
+from keras.preprocessing.image import ImageDataGenerator
 
 # Define image dimensions
 img_height, img_width = 150, 150
@@ -26,11 +28,34 @@ kannada_to_english = dict(zip(df['Tulu_word'], df['English_Meaning']))
 kannada_to_kannada = dict(zip(df['Tulu_word'], df['Kannada_Meaning']))
 kannada_to_malayalam = dict(zip(df['Tulu_word'], df['Malayalam_Meaning']))
 kannada_to_hindi = dict(zip(df['Tulu_word'], df['Hindi_Meaning']))
+# URL of the dataset from the GitHub release
+dataset_url = "https://github.com/manishak8089/VarnaMithra-Tulu_to_Multilingual_Translation/releases/download/v2.0/dataset.zip"
+
+# File path to save the downloaded dataset
+zip_file_path = "dataset.zip"
+
+# Download the dataset
+if not os.path.exists(zip_file_path):
+    response = requests.get(dataset_url)
+    with open(zip_file_path, "wb") as f:
+        f.write(response.content)
+    st.success("Dataset downloaded successfully!")
+
+# Unzip the dataset
+temp_dir = "temp_dataset"
+if not os.path.exists(temp_dir):
+    os.makedirs(temp_dir)
+
+with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
+    zip_ref.extractall(temp_dir)
+
+# Set the path to the unzipped dataset
+dataset_path = os.path.join(temp_dir, "resize2")  # Adjust this to the correct folder name
 
 # Load model and generator setup
 datagen = ImageDataGenerator(rescale=1./255, validation_split=0.2)
 train_generator = datagen.flow_from_directory(
-    r"C:\Users\manis\OneDrive\Desktop\jupyter\resize2",
+    dataset_path,
     target_size=(img_height, img_width),
     color_mode='grayscale',
     class_mode='categorical',
