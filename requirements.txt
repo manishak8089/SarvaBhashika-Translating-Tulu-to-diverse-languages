@@ -1,0 +1,9 @@
+streamlit
+streamlit-drawable-canvas
+pillow
+tensorflow
+numpy
+pandas
+pyttsx3
+gtts
+requests
