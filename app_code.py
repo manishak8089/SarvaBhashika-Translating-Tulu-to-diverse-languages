@@ -12,7 +12,8 @@ import requests
 import os
 import zipfile
 import streamlit as st
-from keras.preprocessing.image import ImageDataGenerator
+
+
 
 # Define image dimensions
 img_height, img_width = 150, 150
