@@ -250,41 +250,63 @@ if predictions:
         malayalam_meaning = kannada_to_malayalam.get(combined_characters, "Meaning not found")
         hindi_meaning = kannada_to_hindi.get(combined_characters, "Meaning not found")
 
-        # Display predicted characters
-        st.markdown(f"<p style='font-size:25px; color:Blue; font-weight:bold;'>Predicted Kannada Characters: {combined_characters}</p>", unsafe_allow_html=True)
+            # Translation layout with 2 columns each for left and right side
+    left_col, right_col = st.columns([1, 1])
 
-        st.markdown(
-        f"""
-        <div style='background-color: #d1e7dd; padding: 10px; border-radius: 5px; margin: 10px 0;'>
-            <p style='font-size:20px; color:#0f5132; font-weight:bold;'>English Meaning: {english_meaning}</p>
-        </div>
-        """, unsafe_allow_html=True)
-        if st.button("🔊 Read Aloud in English", key="en_read_aloud"):
-            speak(english_meaning, lang='en')
-
+    # First two translations on the left
+    with left_col:
+        # English Translation
         st.markdown(
             f"""
-            <div style='background-color: #fff3cd; padding: 10px; border-radius: 5px; margin: 10px 0;'>
+            <div style='padding: 10px; border-radius: 5px; margin: 10px 0; background-color: #d1e7dd;'>
+                <p style='font-size:20px; color:#0f5132; font-weight:bold;'>English Meaning: {english_meaning}</p>
+            </div>
+            """, unsafe_allow_html=True
+        )
+        if st.button("🔊 Read Aloud in English", key="en_read_aloud"):
+            speak(english_meaning, lang="en")
+        
+        # Kannada Translation
+        st.markdown(
+            f"""
+            <div style='padding: 10px; border-radius: 5px; margin: 10px 0; background-color: #fff3cd;'>
                 <p style='font-size:20px; color:#856404; font-weight:bold;'>Kannada Meaning: {kannada_meaning}</p>
             </div>
-            """, unsafe_allow_html=True)
+            """, unsafe_allow_html=True
+        )
         if st.button("🔊 Read Aloud in Kannada", key="kn_read_aloud"):
-            speak(kannada_meaning, lang='kn')
+            speak(kannada_meaning, lang="kn")
 
+    # Next two translations on the right
+    with right_col:
+        # Malayalam Translation
         st.markdown(
             f"""
-            <div style='background-color: #f8d7da; padding: 10px; border-radius: 5px; margin: 10px 0;'>
+            <div style='padding: 10px; border-radius: 5px; margin: 10px 0; background-color: #f8d7da;'>
                 <p style='font-size:20px; color:#721c24; font-weight:bold;'>Malayalam Meaning: {malayalam_meaning}</p>
             </div>
-            """, unsafe_allow_html=True)
+            """, unsafe_allow_html=True
+        )
         if st.button("🔊 Read Aloud in Malayalam", key="ml_read_aloud"):
-            speak(malayalam_meaning, lang='ml')
-
+            speak(malayalam_meaning, lang="ml")
+        
+        # Hindi Translation
         st.markdown(
             f"""
-            <div style='background-color: #cce5ff; padding: 10px; border-radius: 5px; margin: 10px 0;'>
+            <div style='padding: 10px; border-radius: 5px; margin: 10px 0; background-color: #cce5ff;'>
                 <p style='font-size:20px; color:#004085; font-weight:bold;'>Hindi Meaning: {hindi_meaning}</p>
             </div>
-            """, unsafe_allow_html=True)
+            """, unsafe_allow_html=True
+        )
         if st.button("🔊 Read Aloud in Hindi", key="hi_read_aloud"):
-            speak(hindi_meaning, lang='hi')
+            speak(hindi_meaning, lang="hi")
+
+    # Closing section to provide additional user information or actions
+    st.markdown(""" 
+        <div style='background-color: #f8d7da; padding: 10px; border-radius: 8px; font-family: Georgia; font-size: 1.2em; text-align: center;'>
+            <p style='color: #721c24;'>Note: You can adjust the number of characters to be translated and listen to their meanings in multiple languages!</p>
+        </div>
+    """, unsafe_allow_html=True)
+
+with col2:
+    st.image(r"chart.jpg", caption="Language Mapping Chart", use_column_width=True)  # Replace with actual chart path
