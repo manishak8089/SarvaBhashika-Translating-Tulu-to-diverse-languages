@@ -180,7 +180,7 @@ with col1:
     st.markdown(
         """
         <div style='background-color: #004085; padding: 5px 15px; border-radius: 8px; text-align: left; margin-bottom: 20px;'>
-            <h1 style='color: #ffffff; font-size: 3em;'>VarnaMithra: Multilingual Translation for Tulu</h1>
+            <h1 style='color: #ffffff; font-size: 3em;'>Sarvabhashika: Translating Tulu to diverse languages </h1>
             <p style='color: #e0e0e0; font-size: 1.3em;font-family: "Georgia", serif; font-style: italic;'>"Bringing Tulu to Life: Translate, Speak, and Discover a World of Languages!"</p>
         </div>
         """, unsafe_allow_html=True
@@ -306,5 +306,5 @@ if predictions:
     """, unsafe_allow_html=True)
 
 with col2:
-    st.image(r"C:\Users\manis\OneDrive\Pictures\3.jpg", caption="Language Mapping Chart", use_column_width=True)  # Replace with actual chart path
+    st.image(r"chart.jpg", caption="Language Mapping Chart", use_column_width=True)  # Replace with actual chart path
 
