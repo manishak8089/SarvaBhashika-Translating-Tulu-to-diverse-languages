@@ -100,12 +100,18 @@ def preprocess_image(img):
 def is_image_blank(image_data):
     return np.all(image_data[:, :, 0] == 0) or np.all(image_data[:, :, 0] == 255)
 
-# Enhanced speak function using gTTS for all languages, including English
+# Enhanced speak function with gTTS for non-English languages
 def speak(text, lang='en'):
-    tts = gTTS(text=text, lang=lang)
-    audio_data = BytesIO()
-    tts.write_to_fp(audio_data)
-    st.audio(audio_data.getvalue(), format="audio/mp3")
+    if lang == 'en':
+        engine = pyttsx3.init()
+        engine.say(text)
+        engine.runAndWait()
+    else:
+        tts = gTTS(text=text, lang=lang)
+        audio_data = BytesIO()
+        tts.write_to_fp(audio_data)
+        st.audio(audio_data.getvalue(), format="audio/mp3")
+
 
 # Function to add a floating tab with hover info
 def floating_tab_with_hover():
