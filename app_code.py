@@ -298,12 +298,7 @@ if predictions:
         if st.button("🔊 Read Aloud in Hindi", key="hi_read_aloud"):
             speak(hindi_meaning, lang="hi")
 
-    # Closing section to provide additional user information or actions
-    st.markdown(""" 
-        <div style='background-color: #f8d7da; padding: 10px; border-radius: 8px; font-family: Georgia; font-size: 1.2em; text-align: center;'>
-            <p style='color: #721c24;'>Note: You can adjust the number of characters to be translated and listen to their meanings in multiple languages!</p>
-        </div>
-    """, unsafe_allow_html=True)
+   
 
 with col2:
     st.image(r"chart.jpg", caption="Language Mapping Chart", use_column_width=True)  # Replace with actual chart path
