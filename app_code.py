@@ -234,15 +234,15 @@ if predictions:
     combined_characters = ''.join(predictions)
 
     # Display predicted character(s) if only one character is selected, without translations
-    if character_count == 1:
-        st.markdown(f"<p style='font-size:25px; color:Blue; font-weight:bold;'>Predicted Character: {combined_characters}</p>", unsafe_allow_html=True)
+    
+    st.markdown(f"<p style='font-size:25px; color:Blue; font-weight:bold;'>Predicted Character: {combined_characters}</p>", unsafe_allow_html=True)
     
     # If more than one character, display translations as well
-    else:
-        english_meaning = kannada_to_english.get(combined_characters, "Meaning not found")
-        kannada_meaning = kannada_to_kannada.get(combined_characters, "Meaning not found")
-        malayalam_meaning = kannada_to_malayalam.get(combined_characters, "Meaning not found")
-        hindi_meaning = kannada_to_hindi.get(combined_characters, "Meaning not found")
+    
+    english_meaning = kannada_to_english.get(combined_characters, "Meaning not found")
+    kannada_meaning = kannada_to_kannada.get(combined_characters, "Meaning not found")
+    malayalam_meaning = kannada_to_malayalam.get(combined_characters, "Meaning not found")
+    hindi_meaning = kannada_to_hindi.get(combined_characters, "Meaning not found")
 
     # Translation layout with 2 columns each for left and right side
     left_col, right_col = st.columns([1, 1])
