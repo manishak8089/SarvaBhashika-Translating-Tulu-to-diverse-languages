@@ -39,3 +39,7 @@ A dynamic Streamlit interface enables:
   Real-time word recognition and translation into multiple languages.
   Text-to-speech functionality for each translated language, ensuring accessibility and ease of use.
   
+<p align="center">
+  <img src="image1.png" alt="Dataset Example 1" />
+  
+</p>
