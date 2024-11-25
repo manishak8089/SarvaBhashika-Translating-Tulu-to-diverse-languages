@@ -304,7 +304,7 @@ if predictions:
 
 with col2:
     # Open the image
-    img_path = r"C:\Users\manis\OneDrive\Desktop\jupyter\chart.jpg"
+    img_path = r"chart.jpg"
     img = Image.open(img_path)
     
     # Resize the image (set a new height, adjust width to maintain aspect ratio)
