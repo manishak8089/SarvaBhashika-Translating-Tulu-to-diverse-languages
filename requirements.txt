@@ -1,16 +1,13 @@
-streamlit==1.27.2
-pandas
-numpy
-openpyxl
-
-
+streamlit
 streamlit-drawable-canvas
 pillow
 tensorflow
-
-
+numpy
+pandas
+openpyxl  
 pyttsx3
 gtts
 requests
+
 sudo apt-get update
 sudo apt-get install -y espeak
